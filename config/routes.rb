@@ -1,2 +1,2 @@
-Kitt::Engine.routes.draw do
+KITT::Engine.routes.draw do
 end

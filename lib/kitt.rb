@@ -1,4 +1,4 @@
 require "kitt/engine"
 
-module Kitt
+module KITT
 end

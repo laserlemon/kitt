@@ -6,12 +6,12 @@ require "kitt/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "kitt"
-  s.version     = Kitt::VERSION
+  s.version     = KITT::VERSION
   s.authors     = ["Steve Richert"]
   s.email       = ["steve.richert@gmail.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Kitt."
-  s.description = "TODO: Description of Kitt."
+  s.summary     = "TODO: Summary of KITT."
+  s.description = "TODO: Description of KITT."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

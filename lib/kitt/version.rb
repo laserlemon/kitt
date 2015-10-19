@@ -1,3 +1,3 @@
-module Kitt
+module KITT
   VERSION = "0.0.1"
 end
