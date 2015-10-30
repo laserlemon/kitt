@@ -20,7 +20,7 @@ describe "/highfive" do
       expect(response.body).to be_blank
 
       expect(slack).to have_received(:ping).once.with(
-        a_string_matching(/collectiveidea\.highfive\.com\/water-cooler/),
+        a_string_matching("collectiveidea.highfive.com/water-cooler"),
         a_hash_including(channel: "C123456789")
       )
     end
@@ -60,6 +60,26 @@ describe "/highfive" do
       expect(slack).to have_received(:ping).once.with(
         a_string_matching(/collectiveidea\.highfive\.com\/#{UUID}/),
         a_hash_including(channel: "C246897531")
+      )
+    end
+  end
+
+  context "with a custom name" do
+    it "generates a Highfive link using a random UUID" do
+      post "/kitt/highfive", {
+        channel_id: "C135798642",
+        channel_name: "directmessage",
+        team_domain: "collectiveidea",
+        text: "Foo Bar",
+        user_name: "steve"
+      }
+
+      expect(response.status).to eq(200)
+      expect(response.body).to be_blank
+
+      expect(slack).to have_received(:ping).once.with(
+        a_string_matching("collectiveidea.highfive.com/foo-bar"),
+        a_hash_including(channel: "C135798642")
       )
     end
   end

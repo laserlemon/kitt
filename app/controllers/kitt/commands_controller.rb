@@ -1,8 +1,9 @@
 module KITT
   class CommandsController < KITT::ApplicationController
     def highfive
-      slug = case params[:channel_name]
-             when "directmessage", "privategroup"
+      slug = if params[:text].present?
+               params[:text].parameterize
+             elsif params[:channel_name].in?(%w(directmessage privategroup))
                SecureRandom.uuid
              else
                params[:channel_name]
