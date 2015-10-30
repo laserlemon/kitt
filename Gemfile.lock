@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kitt (0.0.1)
+    kitt (1.0.0)
       rails (~> 4.2.4)
       slack-notifier (~> 1.4)
 
