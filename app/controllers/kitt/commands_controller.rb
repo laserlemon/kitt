@@ -8,9 +8,22 @@ module KITT
                params[:channel_name]
              end
 
-      user, domain = params[:user_name], params[:team_domain]
+      url = "#{params[:team_domain]}.highfive.com/#{slug}"
+      text = "Join <@#{params[:user_name]}>'s call at: <https://#{url}|#{url}>"
 
-      render text: "Join #{user}'s :highfive: at: #{domain}.highfive.com/#{slug}"
+      slack.ping(text, {
+        channel: params[:channel_id],
+        icon_emoji: ":highfive:",
+        username: "Highfive"
+      })
+
+      head :ok
+    end
+
+    private
+
+    def slack
+      @slack ||= Slack::Notifier.new(ENV["KITT_INCOMING_WEBHOOK_URL"])
     end
   end
 end
