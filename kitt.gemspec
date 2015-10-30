@@ -1,24 +1,20 @@
-$:.push File.expand_path("../lib", __FILE__)
+Gem::Specification.new do |spec|
+  spec.name    = "kitt"
+  spec.version = "1.0.0"
 
-# Maintain your gem's version:
-require "kitt/version"
+  spec.author      = "Steve Richert"
+  spec.email       = "steve.richert@gmail.com"
+  spec.summary     = "A Slack command Ruby engine"
+  spec.description = "KITT is an experimental Ruby engine for handling Slack commands."
+  spec.homepage    = "https://github.com/laserlemon/kitt"
+  spec.license     = "MIT"
 
-# Describe your gem and declare its dependencies:
-Gem::Specification.new do |s|
-  s.name        = "kitt"
-  s.version     = KITT::VERSION
-  s.authors     = ["Steve Richert"]
-  s.email       = ["steve.richert@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of KITT."
-  s.description = "TODO: Description of KITT."
-  s.license     = "MIT"
+  spec.files      = `git ls-files -z`.split("\x0")
+  spec.test_files = spec.files.grep(/^spec/)
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  spec.add_dependency "rails", "~> 4.2.4"
+  spec.add_dependency "slack-notifier", "~> 1.4"
 
-  s.add_dependency "rails", "~> 4.2.4"
-  s.add_dependency "slack-notifier", "~> 1.4"
-
-  s.add_development_dependency "rake"
-  s.add_development_dependency "bundler"
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "rake"
 end
