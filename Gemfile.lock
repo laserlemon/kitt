@@ -3,6 +3,7 @@ PATH
   specs:
     kitt (0.0.1)
       rails (~> 4.2.4)
+      slack-notifier (~> 1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -112,6 +113,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    slack-notifier (1.4.0)
     slop (3.6.0)
     sprockets (3.4.0)
       rack (> 1, < 3)
